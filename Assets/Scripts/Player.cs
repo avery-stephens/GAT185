@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [Range(1,15), Tooltip("controls speed of the player")] public float speed = 5f;
+    [Range(1,75), Tooltip("controls speed of the player")] public float speed = 5f;
     [Range(1,360)] public float rotationRate;
     public GameObject prefab;
     public Transform bulletSpawnLocation;
