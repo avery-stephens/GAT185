@@ -7,13 +7,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2140806760, guid: ffec588ab6d93354e847b70281d0fceb, type: 3}
-      propertyPath: speed
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 2140806760, guid: ffec588ab6d93354e847b70281d0fceb, type: 3}
-      propertyPath: rotationRate
-      value: 40
+    - target: {fileID: 7177782962581558531, guid: ffec588ab6d93354e847b70281d0fceb, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8216420750773434250, guid: ffec588ab6d93354e847b70281d0fceb, type: 3}
       propertyPath: m_RootOrder
@@ -21,15 +17,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8216420750773434250, guid: ffec588ab6d93354e847b70281d0fceb, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8216420750773434250, guid: ffec588ab6d93354e847b70281d0fceb, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8216420750773434250, guid: ffec588ab6d93354e847b70281d0fceb, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8216420750773434250, guid: ffec588ab6d93354e847b70281d0fceb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -73,7 +69,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8218461895315809550, guid: ffec588ab6d93354e847b70281d0fceb, type: 3}
       propertyPath: m_Name
-      value: Asteroid_S
+      value: Asteroid
+      objectReference: {fileID: 0}
+    - target: {fileID: 8218461895315809550, guid: ffec588ab6d93354e847b70281d0fceb, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffec588ab6d93354e847b70281d0fceb, type: 3}

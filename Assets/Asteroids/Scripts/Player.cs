@@ -45,5 +45,13 @@ public class Player : MonoBehaviour
             //GetComponent<AudioSource>().Play();
             GameObject go = Instantiate(prefab, bulletSpawnLocation.position, bulletSpawnLocation.rotation);
         }
+
     }
+	private void OnTriggerEnter(Collider other)
+	{
+		if (other.gameObject.CompareTag("Enemy"))
+		{
+			FindObjectOfType<AsteroidGameManager>()?.SetGameOver();
+		}
+	}
 }
