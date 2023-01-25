@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class RollerPlayer : MonoBehaviour
 {
+    [SerializeField] private Transform view;
     [SerializeField] private float maxForce = 5;
+
+    [SerializeField] private float groundRayLength = 1;
+    [SerializeField] private LayerMask groundLayer;
+
+    private int score = 0;
     private Vector3 force;
     private Rigidbody rb;
 
@@ -12,7 +18,14 @@ public class RollerPlayer : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-    }
+
+        view = Camera.main.transform;
+        Camera.main.GetComponent<RollerCamera>().SetTarget(transform);
+
+        GetComponent<Health>().onDamage += OnDamage;
+        GetComponent<Health>().onDeath += OnDeath;
+		RollerGameManager.Instance.SetHealth((int)GetComponent<Health>().health);
+	}
 
     // Update is called once per frame
     void Update()
@@ -22,9 +35,14 @@ public class RollerPlayer : MonoBehaviour
         direction.x = Input.GetAxis("Horizontal");
         direction.z = Input.GetAxis("Vertical");
 
-        force = direction * maxForce;
+        Quaternion viewSpace = Quaternion.AngleAxis(view.rotation.eulerAngles.y, Vector3.up);
+        force = viewSpace * (direction * maxForce);
 
-        if (Input.GetButtonDown("Jump")) 
+		Ray ray = new Ray(transform.position, Vector3.down);
+		bool onGround = Physics.Raycast(ray, groundRayLength, groundLayer);
+		Debug.DrawRay(transform.position, ray.direction * groundRayLength);
+
+		if (onGround && Input.GetButtonDown("Jump")) 
         {
             rb.AddForce(Vector3.up * 10, ForceMode.Impulse);
         }
@@ -34,4 +52,21 @@ public class RollerPlayer : MonoBehaviour
 	{
         rb.AddForce(force);	
 	}
+
+    public void AddPoints(int points)
+    {
+        score += points;
+        RollerGameManager.Instance.SetScore(score);
+    }
+
+    public void OnDamage()
+    {
+        Debug.Log("ouch");
+        RollerGameManager.Instance.SetHealth((int)GetComponent<Health>().health);
+    }
+
+    public void OnDeath()
+    {
+        RollerGameManager.Instance.SetGameOver();
+    }
 }
