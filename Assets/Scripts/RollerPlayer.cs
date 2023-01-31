@@ -24,6 +24,7 @@ public class RollerPlayer : MonoBehaviour
 
         GetComponent<Health>().onDamage += OnDamage;
         GetComponent<Health>().onDeath += OnDeath;
+        GetComponent<Health>().onHeal += OnHeal;
 		RollerGameManager.Instance.SetHealth((int)GetComponent<Health>().health);
 	}
 
@@ -59,7 +60,13 @@ public class RollerPlayer : MonoBehaviour
         RollerGameManager.Instance.SetScore(score);
     }
 
-    public void OnDamage()
+	public void OnHeal()
+	{
+		Debug.Log("yay");
+		RollerGameManager.Instance.SetHealth((int)GetComponent<Health>().health);
+	}
+
+	public void OnDamage()
     {
         Debug.Log("ouch");
         RollerGameManager.Instance.SetHealth((int)GetComponent<Health>().health);
@@ -68,5 +75,6 @@ public class RollerPlayer : MonoBehaviour
     public void OnDeath()
     {
         RollerGameManager.Instance.SetGameOver();
+        Destroy(gameObject);
     }
 }

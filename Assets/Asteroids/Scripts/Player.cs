@@ -49,6 +49,7 @@ public class Player : MonoBehaviour
     }
 	private void OnTriggerEnter(Collider other)
 	{
+        Debug.Log("touching!!");
 		if (other.gameObject.CompareTag("Enemy"))
 		{
 			FindObjectOfType<AsteroidGameManager>()?.SetGameOver();
