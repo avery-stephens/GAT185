@@ -10,7 +10,9 @@ public class RollerPlayer : MonoBehaviour
     [SerializeField] private float groundRayLength = 1;
     [SerializeField] private LayerMask groundLayer;
 
-    private int score = 0;
+	[SerializeField] AudioSource interactSound;
+
+	private int score = 0;
     private Vector3 force;
     private Rigidbody rb;
 
@@ -46,6 +48,7 @@ public class RollerPlayer : MonoBehaviour
 		if (onGround && Input.GetButtonDown("Jump")) 
         {
             rb.AddForce(Vector3.up * 10, ForceMode.Impulse);
+            interactSound.Play();
         }
     }
 

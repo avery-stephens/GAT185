@@ -20,6 +20,7 @@ public class RollerGameManager : Singleton<RollerGameManager>
 	[SerializeField] GameObject titleUI;
 
 	[SerializeField] AudioSource gameMusic;
+	[SerializeField] AudioSource winnerMusic;
 
 	[SerializeField] GameObject playerPrefab;
 	[SerializeField] Transform playerStart;
@@ -107,6 +108,8 @@ public class RollerGameManager : Singleton<RollerGameManager>
 	{
 		stopGameEvent.Notify();
 		gameWonUI.SetActive(true);
+		gameMusic.Stop();
+		winnerMusic.Play();
 		state = State.GAME_WON;
 		stateTimer = 5;
 		Debug.Log("Win!!!");

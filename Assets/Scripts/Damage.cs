@@ -7,6 +7,7 @@ public class Damage : Interactable
 {
 	[SerializeField] float damage = 0;
 	[SerializeField] bool oneTime = true;
+	[SerializeField] AudioSource interactSound;
 
 	void Start()
 	{
@@ -20,6 +21,7 @@ public class Damage : Interactable
 		if (target.TryGetComponent<Health>(out Health health))
 		{
 			health.OnApplyDamage(damage * ((oneTime) ? 1 : Time.deltaTime));
+			interactSound.Play();
 		}
 	}
 }

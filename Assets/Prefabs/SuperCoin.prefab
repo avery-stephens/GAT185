@@ -63,6 +63,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactFX: {fileID: 1497030318103322, guid: 3313c584bfb0ca54584fe5b29871dfc2, type: 3}
   destroyOnInteract: 1
+  interactSound: {fileID: 0}
 --- !u!114 &6065471172828925319
 MonoBehaviour:
   m_ObjectHideFlags: 0

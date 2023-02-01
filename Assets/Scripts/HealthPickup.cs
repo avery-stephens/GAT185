@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(CollisionEvent))]
 public class HealthPickup : Interactable
 {
+	[SerializeField] AudioSource interactSound;
 	[SerializeField] private float heal;
 	// Start is called before the first frame update
 	void Start()
@@ -16,6 +17,7 @@ public class HealthPickup : Interactable
 	{
 		if (target.TryGetComponent<Health>(out Health health))
 		{
+			interactSound.Play();
 			health.OnApplyHealth(heal);
 		}
 

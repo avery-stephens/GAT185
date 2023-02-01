@@ -160,8 +160,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17f2c71502a63b544bbb3ae6bbc7386e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitTagName: 
-  pickupFX: {fileID: 0}
+  interactFX: {fileID: 0}
+  destroyOnInteract: 1
+  interactSound: {fileID: 0}
 --- !u!114 &2749653685914294121
 MonoBehaviour:
   m_ObjectHideFlags: 0
